@@ -1,0 +1,9 @@
+
+    <resources>
+        <string name="app_name">MyApp</string>
+        <string name="login_title">LOGIN</string>
+        <string name="nome_label">Nome</string>
+        <string name="email_label">Email</string>
+        <string name="senha_label">Senha</string>
+        <string name="login_button_text">LOGIN</string>
+    </resources>
