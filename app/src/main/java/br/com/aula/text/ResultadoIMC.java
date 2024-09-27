@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import org.w3c.dom.Text;
+
 public class ResultadoIMC extends AppCompatActivity {
 
     private ImageView btnVoltar;
@@ -25,17 +27,20 @@ public class ResultadoIMC extends AppCompatActivity {
         TextView textoPeso = findViewById(R.id.textoPeso);
         TextView textoAltura = findViewById(R.id.textoAltura);
         TextView textoImc = findViewById(R.id.textoIMC);
+        TextView textoNome = findViewById(R.id.textoNome);
 
         // Receber os dados da Intent
         Intent intent = getIntent();
         String peso = intent.getStringExtra("peso");
         String altura = intent.getStringExtra("altura");
         String imc = intent.getStringExtra("imc");
+        String nome = intent.getStringExtra("nome");
 
         // Atualizar os TextViews com os dados recebidos
-        textoPeso.setText("Peso: " + peso);
-        textoAltura.setText("Altura: " + altura);
-        textoImc.setText("IMC: " + imc);
+        textoPeso.setText(peso);
+        textoAltura.setText(altura);
+        textoImc.setText(imc);
+        textoNome.setText(nome);
 
 
         Bundle bundle = intent.getExtras();

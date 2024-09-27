@@ -22,7 +22,6 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView btnVoltar;
-    private String nome;
     private Button btnResultado;
     private TextInputEditText inputPeso;
     private TextInputEditText inputAltura;
@@ -36,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
         inputPeso = findViewById(R.id.textInputEditPeso);
         inputAltura = findViewById(R.id.textInputEditAltura);
         btnResultado = findViewById(R.id.btnResultado);
+
+        Intent inte = getIntent();
+        String nome = inte.getStringExtra("nome");
+
 
         // Configurando o clique no botão de resultado
         btnResultado.setOnClickListener(view -> {
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("peso", peso);
                 intent.putExtra("altura", altura);
                 intent.putExtra("imc", imcFormatado);
+                intent.putExtra("nome", nome);
 
                 startActivity(intent);
 
@@ -81,17 +85,7 @@ public class MainActivity extends AppCompatActivity {
     public void limpar(View view) {
         TextInputEditText inputPeso = findViewById(R.id.textInputEditPeso);
         TextInputEditText inputAltura = findViewById(R.id.textInputEditAltura);
-
-        TextView textoResult1 = findViewById(R.id.textoResultado1);
-        TextView textoResult2 = findViewById(R.id.textoResultado2);
-        TextView textoResult3 = findViewById(R.id.textoResultado3);
-
         inputPeso.setText("");
         inputAltura.setText("");
-        textoResult1.setText("");
-        textoResult2.setText("");
-        textoResult3.setText("");
-        textoResult2.setTextColor(Color.BLACK);
-        textoResult3.setTextColor(Color.BLACK);
     }
 }
