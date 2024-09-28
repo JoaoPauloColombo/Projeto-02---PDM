@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -37,19 +38,27 @@ public class Login extends AppCompatActivity {
         btnLogin = findViewById(R.id.buttonLogin);
 
         btnLogin.setOnClickListener(view -> {
+            try {
+                String nome = inputNome.getText().toString();
+                String email = inputEmail.getText().toString();
+                String senha = inputSenha.getText().toString();
 
-            String nome = inputNome.getText().toString();
-            String email = inputEmail.getText().toString();
-            String senha = inputSenha.getText().toString();
+                // Verificando se algum campo está vazio
+                if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+                    throw new IllegalArgumentException("Todos os campos devem ser preenchidos.");
+                }
 
+                Intent intent = new Intent(Login.this, MainActivity.class);
 
-            Intent intent = new Intent(Login.this, MainActivity.class);
+                intent.putExtra("nome", nome);
+                intent.putExtra("email", email);
+                intent.putExtra("senha", senha);
 
-            intent.putExtra("nome", nome);
-            intent.putExtra("email", email);
-            intent.putExtra("senha", senha);
-
-            startActivity(intent);
+                startActivity(intent);
+            } catch (IllegalArgumentException e) {
+                Toast.makeText(Login.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("Input Error", "Erro: " + e.getMessage());
+            }
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -58,5 +67,4 @@ public class Login extends AppCompatActivity {
             return insets;
         });
     }
-
 }

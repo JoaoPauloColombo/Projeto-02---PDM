@@ -11,11 +11,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import org.w3c.dom.Text;
-
 public class ResultadoIMC extends AppCompatActivity {
 
     private ImageView btnVoltar;
+    private TextView textoPeso;
+    private TextView textoAltura;
+    private TextView resultadoImc;
+    private TextView textoNome;
+    private TextView textIMC;
+    private TextView classificacaoIMC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +28,12 @@ public class ResultadoIMC extends AppCompatActivity {
         setContentView(R.layout.activity_resultado_imc);
 
         // Inicializar as Views
-        TextView textoPeso = findViewById(R.id.textoPeso);
-        TextView textoAltura = findViewById(R.id.textoAltura);
-        TextView textoImc = findViewById(R.id.textoIMC);
-        TextView textoNome = findViewById(R.id.textoNome);
+        textoPeso = findViewById(R.id.textoPeso);
+        textoAltura = findViewById(R.id.textoAltura);
+        resultadoImc = findViewById(R.id.resultadoImc);
+        textIMC = findViewById(R.id.textIMC);
+        textoNome = findViewById(R.id.textoNome);
+        classificacaoIMC = findViewById(R.id.valorClaIMC);
 
         // Receber os dados da Intent
         Intent intent = getIntent();
@@ -35,15 +41,40 @@ public class ResultadoIMC extends AppCompatActivity {
         String altura = intent.getStringExtra("altura");
         String imc = intent.getStringExtra("imc");
         String nome = intent.getStringExtra("nome");
+        String erro = intent.getStringExtra("erro");
 
         // Atualizar os TextViews com os dados recebidos
         textoPeso.setText(peso);
         textoAltura.setText(altura);
-        textoImc.setText(imc);
+        textIMC.setText(imc);
         textoNome.setText(nome);
 
+        if (erro != null) {
+            textoPeso.setText("ERRO");
+            textoAltura.setText(erro);
+            textoPeso.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
+            textoAltura.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
+        } else {
+            // Exibir os resultados aqui
+            textIMC.setText("Seu IMC é:");
+            resultadoImc.setText(imc);
 
-        Bundle bundle = intent.getExtras();
+            // Classificar o IMC
+            double imcValue = Double.parseDouble(imc);
+            if (imcValue < 18.5) {
+                classificacaoIMC.setText("Baixo peso");
+            } else if (imcValue >= 18.5 && imcValue < 25) {
+                classificacaoIMC.setText("Peso normal");
+            } else if (imcValue >= 25 && imcValue < 30) {
+                classificacaoIMC.setText("Sobrepeso");
+            } else if (imcValue >= 30 && imcValue < 35) {
+                classificacaoIMC.setText("Obesidade grau 1");
+            } else if (imcValue >= 35 && imcValue < 40) {
+                classificacaoIMC.setText("Obesidade grau 2");
+            } else {
+                classificacaoIMC.setText("Obesidade extrema");
+            }
+        }
 
         btnVoltar = findViewById(R.id.btnVoltar);
 
