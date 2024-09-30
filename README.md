@@ -1,11 +1,35 @@
-# Projeto IMC - Aplicativo Móvel
+===============================================================
+FECAP - CIÊNCIA DA COMPUTAÇÃO - 2024/2  
+PROGRAMAÇÃO DE DISPOSITIVOS MÓVEIS - PROF. VINÍCIUS HELTAI  
+===============================================================
 
-## FECAP - Ciência da Computação - 2024/2
+PRIMEIRO PROJETO PARA NOTA - NI
+===============================================================
 
-### Programação de Dispositivos Móveis
-### Professor: Vinícius Heltaí
+REGRAS DO PROJETO
+===============================================================
 
----
+Entrega: 30/09/2024 - 23h59
+
+REGRA DO PROJETO:
+- Grupo de no máximo 4 pessoas;
+- No envio (projeto), deve constar no projeto o arquivo ".apk";
+- O código do projeto deve constar em um diretório zip (todo o projeto);
+- Todos os alunos do grupo devem postar no Moodle (mesmo sendo o mesmo projeto dos demais) a fim de registrar em processo avaliativo;
+- O projeto deve estar alocado em um repositório no GitHub (1 repositório para todo o grupo);
+- No repositório GitHub deve constar um arquivo README do projeto (contendo o nome completo e número de matrícula de todos os integrantes e uma pequena explicação do projeto);
+
+===============================================================
+
+ESCOPO DO PROJETO:
+===============================================================
+
+- Melhorar o app do IMC
+- Cada resultado (abaixo do peso, peso normal, sobrepeso, etc) deve ser aberto em uma tela (activity) nova.
+- Como sugestão, fazer tela de login (conforme aula) e entrada de dados. Após a análise, indicar um activity que oriente e passe informações sobre aquela classificação (além do IMC).
+- Deve constar um botão ou uma figura (por exemplo X) que feche a janela e volte para a anterior.
+
+===============================================================
 
 ## Descrição do Projeto
 
@@ -45,29 +69,9 @@ Este é o primeiro projeto de programação de dispositivos móveis para a disci
 - `.gitignore`: Arquivo que define os arquivos que não devem ser versionados pelo Git.
 - `.idea/`: Diretório do IntelliJ IDEA.
 
-# Como Executar o Projeto
+## Como Executar o Projeto
+
 * Clone o repositório:
 
-
-Copiar código
 ```bash
-git clone https://github.com/LucianoReisMassaro/Projeto-01---PDM.git
-```
-Navegue até o diretório do projeto:
-
-
-Copiar código
-```bash
-cd Projeto-01---PDM
-```
-Construa e execute o aplicativo:
-
-Importe o projeto para o Android Studio.
-
-### Construa o aplicativo e execute-o em um dispositivo Android ou emulador.
-
-## Localização do apk para uso via mobile
-
-```bash
-C:\Users\joaos\OneDrive\Documentos\GitHub\PROJETO5\Projeto-01---PDM\app\build\outputs\apk
-```
+git clone https://github.com/JoaoPauloColombo/Projeto-02---PDM.git
